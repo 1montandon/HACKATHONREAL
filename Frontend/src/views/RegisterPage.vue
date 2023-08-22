@@ -18,7 +18,7 @@ const showPassword = ref(false)
     </div>
     </div>
     <div class="inputs">
-        <InputType type="text" placeholder="name" icon=""> </InputType>
+        <InputType type="text" placeholder="name" icon="user"> </InputType>
         <InputType type="email" placeholder="email" icon="envelope"> </InputType>
         <InputType type="text" placeholder="cep" icon=""> </InputType>
         <InputType type="email" placeholder="cpf" icon=""> </InputType>
@@ -133,7 +133,7 @@ svg {
 .inputs {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  row-gap: 10px;
+  row-gap: 22px;
   margin-bottom: 12px;
   justify-content: center;
 }

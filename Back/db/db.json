@@ -309,5 +309,27 @@
         "tipo": "Em trabalho"
       }
     ],
+    "avaliacoes": [
+      {
+        "id": 1,
+        "chefId": 48,
+        "stars": 1
+      },
+      {
+        "id": 2,
+        "chefId": 48,
+        "stars": 2
+      },
+      {
+        "id": 3,
+        "chefId": 48,
+        "stars": 1
+      },
+      {
+        "id": 4,
+        "chefId": 48,
+        "stars": 4
+      }
+    ],
     "usuarios" : []
   }

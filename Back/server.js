@@ -20,7 +20,8 @@ server.get('/chefs-com-avaliacao', (req, res) => {
         qtdAvaliacoes++
       }
     })
-    c.stars = sumStars/qtdAvaliacoes
+    c.stars = Math.ceil(sumStars/qtdAvaliacoes)
+    
   })
   console.log(chefes)
   res.jsonp(chefes)

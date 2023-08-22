@@ -1,5 +1,5 @@
 {
-  "name": "projeto-inicial",
+  "name": "clear",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -29,5 +29,9 @@
     "eslint-plugin-vue": "^9.15.1",
     "prettier": "^3.0.0",
     "vite": "^4.4.6"
-  }
+  },
+  "description": "Jame's services site project",
+  "main": "vite.config.js",
+  "author": "",
+  "license": "ISC"
 }

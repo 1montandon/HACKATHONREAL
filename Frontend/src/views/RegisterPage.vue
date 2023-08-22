@@ -20,8 +20,8 @@ const showPassword = ref(false)
     <div class="inputs">
         <InputType type="text" placeholder="name" icon="user"> </InputType>
         <InputType type="email" placeholder="email" icon="envelope"> </InputType>
-        <InputType type="text" placeholder="cep" icon=""> </InputType>
-        <InputType type="email" placeholder="cpf" icon=""> </InputType>
+        <InputType type="text" placeholder="cep" icon="location-dot"> </InputType>
+        <InputType type="email" placeholder="cpf" icon="address-card"> </InputType>
         <InputType
           @buttonClicked="showPassword = !showPassword"
           :type="showPassword ? 'text' : 'password'"
@@ -36,6 +36,9 @@ const showPassword = ref(false)
           :icon="showPassword ? 'eye' : 'eye-slash'"
         >
         </InputType>
+        <div class="buttons">
+        <RouterLink to="/"><button-type class="button" buttontext="login"> </button-type></RouterLink>
+      </div>
       </div>
     <div class="footer">
       <svg

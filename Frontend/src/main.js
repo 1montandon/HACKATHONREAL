@@ -8,6 +8,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons'
+import { faBurger, faCake, faBowlFood } from '@fortawesome/free-solid-svg-icons'
 
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -17,7 +18,7 @@ import { faAddressCard } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faEnvelope, faEye, faEyeSlash, faUser, faLocationDot, faAddressCard)
 
-library.add(faEnvelope, faEye, faEyeSlash, faStar, faDollarSign)
+library.add(faEnvelope, faEye, faEyeSlash, faStar, faDollarSign, faBurger, faCake, faBowlFood)
 
 const app = createApp(App)
 

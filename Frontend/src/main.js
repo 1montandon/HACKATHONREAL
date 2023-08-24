@@ -11,7 +11,11 @@ import { faDollarSign } from '@fortawesome/free-solid-svg-icons'
 
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { faAddressCard } from '@fortawesome/free-solid-svg-icons'
 
+library.add(faEnvelope, faEye, faEyeSlash, faUser, faLocationDot, faAddressCard)
 
 library.add(faEnvelope, faEye, faEyeSlash, faStar, faDollarSign)
 
@@ -20,4 +24,4 @@ const app = createApp(App)
 app.use(router)
 
 app.mount('#app')
-app.component("font-awesome-icon", FontAwesomeIcon )
+app.component("font-awesome-icon", FontAwesomeIcon)

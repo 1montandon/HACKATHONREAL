@@ -379,5 +379,12 @@
         "stars": 4
       }
     ],
-    "usuarios" : []
+    "usuarios" : [{
+      "name": null,
+      "email": null,
+      "cpf": null,
+      "cep": null,
+      "password": null,
+      "confirmPassword": null
+    }]
   }

@@ -3,6 +3,24 @@ import { ref } from 'vue'
 import HeaderNav from '../components/HeaderNav.vue'
 import ButtonType from '../components/login/ButtonType.vue'
 import InputType from '../components/login/InputType.vue'
+import UsuariosApi from '../api/usuarios'
+
+const usuariosApi = new UsuariosApi();
+
+const users = ref(
+  {
+    name: "",
+    email: "",
+    cep: "",
+    cpf: "",
+    senha: "",
+    confirmaSenha: ""
+  }
+)
+
+function viewAllUsers() {
+      users.value = usuariosApi.buscarTodosUsuarios();
+    }
 
 const showPassword = ref(false)
 </script>

@@ -4,6 +4,18 @@ const chefes = [
   { id: 2, name: 'Monta', stars: 5, dollars: 3, pic:'https://avatars.githubusercontent.com/u/849206?v=4'},
   { id: 1, name: 'BLABLA', stars: 5, dollars: 1, pic:'https://avatars.githubusercontent.com/u/165224?v=4'},
   { id: 1, name: 'Eduardo FOrget', stars: 2, dollars: 4, pic:'https://zonamista.com.br/wp-content/uploads/2023/07/sashaa.jpg'},
+  { id: 1, name: 'Eduardo', stars: 5, dollars: 5, pic:'https://avatars.githubusercontent.com/u/48130339?v=4' },
+  { id: 2, name: 'Monta', stars: 5, dollars: 3, pic:'https://avatars.githubusercontent.com/u/849206?v=4'},
+  { id: 1, name: 'BLABLA', stars: 5, dollars: 1, pic:'https://avatars.githubusercontent.com/u/165224?v=4'},
+  { id: 1, name: 'Eduardo FOrget', stars: 2, dollars: 4, pic:'https://zonamista.com.br/wp-content/uploads/2023/07/sashaa.jpg'},
+  { id: 1, name: 'Eduardo', stars: 5, dollars: 5, pic:'https://avatars.githubusercontent.com/u/48130339?v=4' },
+  { id: 2, name: 'Monta', stars: 5, dollars: 3, pic:'https://avatars.githubusercontent.com/u/849206?v=4'},
+  { id: 2, name: 'Monta', stars: 5, dollars: 3, pic:'https://avatars.githubusercontent.com/u/849206?v=4'},
+  { id: 1, name: 'BLABLA', stars: 5, dollars: 1, pic:'https://avatars.githubusercontent.com/u/165224?v=4'},
+  { id: 1, name: 'Eduardo FOrget', stars: 2, dollars: 4, pic:'https://zonamista.com.br/wp-content/uploads/2023/07/sashaa.jpg'},
+  { id: 1, name: 'Eduardo', stars: 5, dollars: 5, pic:'https://avatars.githubusercontent.com/u/48130339?v=4' },
+  { id: 2, name: 'Monta', stars: 5, dollars: 3, pic:'https://avatars.githubusercontent.com/u/849206?v=4'}
+
 
 
 ]
@@ -37,8 +49,9 @@ const chefes = [
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  column-gap: 2vw;
+  column-gap: 3.91vw;
   row-gap: 2vw;
+  justify-content: center
 
 }
 .card{

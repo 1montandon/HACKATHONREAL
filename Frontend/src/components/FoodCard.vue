@@ -1,32 +1,129 @@
 <script setup>
+import { RouterLink } from 'vue-router'
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 const chefes = [
-  { id: 1, name: 'Eduardo', stars: 5, dollars: 5, pic:'https://avatars.githubusercontent.com/u/48130339?v=4' },
-  { id: 2, name: 'Monta', stars: 5, dollars: 3, pic:'https://avatars.githubusercontent.com/u/849206?v=4'},
-  { id: 1, name: 'BLABLA', stars: 5, dollars: 1, pic:'https://avatars.githubusercontent.com/u/165224?v=4'},
-  { id: 1, name: 'Eduardo FOrget', stars: 2, dollars: 4, pic:'https://zonamista.com.br/wp-content/uploads/2023/07/sashaa.jpg'},
-  { id: 1, name: 'Eduardo', stars: 5, dollars: 5, pic:'https://avatars.githubusercontent.com/u/48130339?v=4' },
-  { id: 2, name: 'Monta', stars: 5, dollars: 3, pic:'https://avatars.githubusercontent.com/u/849206?v=4'},
-  { id: 1, name: 'BLABLA', stars: 5, dollars: 1, pic:'https://avatars.githubusercontent.com/u/165224?v=4'},
-  { id: 1, name: 'Eduardo FOrget', stars: 2, dollars: 4, pic:'https://zonamista.com.br/wp-content/uploads/2023/07/sashaa.jpg'},
-  { id: 1, name: 'Eduardo', stars: 5, dollars: 5, pic:'https://avatars.githubusercontent.com/u/48130339?v=4' },
-  { id: 2, name: 'Monta', stars: 5, dollars: 3, pic:'https://avatars.githubusercontent.com/u/849206?v=4'},
-  { id: 2, name: 'Monta', stars: 5, dollars: 3, pic:'https://avatars.githubusercontent.com/u/849206?v=4'},
-  { id: 1, name: 'BLABLA', stars: 5, dollars: 1, pic:'https://avatars.githubusercontent.com/u/165224?v=4'},
-  { id: 1, name: 'Eduardo FOrget', stars: 2, dollars: 4, pic:'https://zonamista.com.br/wp-content/uploads/2023/07/sashaa.jpg'},
-  { id: 1, name: 'Eduardo', stars: 5, dollars: 5, pic:'https://avatars.githubusercontent.com/u/48130339?v=4' },
-  { id: 2, name: 'Monta', stars: 5, dollars: 3, pic:'https://avatars.githubusercontent.com/u/849206?v=4'}
-
-
-
+  {
+    id: 1,
+    name: 'Eduardo',
+    stars: 5,
+    dollars: 5,
+    pic: 'https://avatars.githubusercontent.com/u/48130339?v=4'
+  },
+  {
+    id: 2,
+    name: 'Monta',
+    stars: 5,
+    dollars: 3,
+    pic: 'https://avatars.githubusercontent.com/u/849206?v=4'
+  },
+  {
+    id: 1,
+    name: 'BLABLA',
+    stars: 5,
+    dollars: 1,
+    pic: 'https://avatars.githubusercontent.com/u/165224?v=4'
+  },
+  {
+    id: 1,
+    name: 'Eduardo FOrget',
+    stars: 2,
+    dollars: 4,
+    pic: 'https://zonamista.com.br/wp-content/uploads/2023/07/sashaa.jpg'
+  },
+  {
+    id: 1,
+    name: 'Eduardo',
+    stars: 5,
+    dollars: 5,
+    pic: 'https://avatars.githubusercontent.com/u/48130339?v=4'
+  },
+  {
+    id: 2,
+    name: 'Monta',
+    stars: 5,
+    dollars: 3,
+    pic: 'https://avatars.githubusercontent.com/u/849206?v=4'
+  },
+  {
+    id: 1,
+    name: 'BLABLA',
+    stars: 5,
+    dollars: 1,
+    pic: 'https://avatars.githubusercontent.com/u/165224?v=4'
+  },
+  {
+    id: 1,
+    name: 'Eduardo FOrget',
+    stars: 2,
+    dollars: 4,
+    pic: 'https://zonamista.com.br/wp-content/uploads/2023/07/sashaa.jpg'
+  },
+  {
+    id: 1,
+    name: 'Eduardo',
+    stars: 5,
+    dollars: 5,
+    pic: 'https://avatars.githubusercontent.com/u/48130339?v=4'
+  },
+  {
+    id: 2,
+    name: 'Monta',
+    stars: 5,
+    dollars: 3,
+    pic: 'https://avatars.githubusercontent.com/u/849206?v=4'
+  },
+  {
+    id: 2,
+    name: 'Monta',
+    stars: 5,
+    dollars: 3,
+    pic: 'https://avatars.githubusercontent.com/u/849206?v=4'
+  },
+  {
+    id: 1,
+    name: 'BLABLA',
+    stars: 5,
+    dollars: 1,
+    pic: 'https://avatars.githubusercontent.com/u/165224?v=4'
+  },
+  {
+    id: 1,
+    name: 'Eduardo FOrget',
+    stars: 2,
+    dollars: 4,
+    pic: 'https://zonamista.com.br/wp-content/uploads/2023/07/sashaa.jpg'
+  },
+  {
+    id: 1,
+    name: 'Eduardo',
+    stars: 5,
+    dollars: 5,
+    pic: 'https://avatars.githubusercontent.com/u/48130339?v=4'
+  },
+  {
+    id: 2,
+    name: 'Monta',
+    stars: 5,
+    dollars: 3,
+    pic: 'https://avatars.githubusercontent.com/u/849206?v=4'
+  }
 ]
+function getInfo(chefe){
+  router.push({ name: "chefspage", params: { chefe: chefe, id: chefe.id } });
+}
 </script>
 
 <template>
   <div class="chefes">
     <div class="card" v-for="chefe in chefes" :key="chefe.id">
-      <div>
-        <img class="img" :src="chefe.pic" alt="">
-      </div>
+        <div>
+        <RouterLink @click="getInfo(chefe)" to="/chefspage">
+          <img class="img" :src="chefe.pic" alt="" />
+        </RouterLink>
+
+          </div>
       <div class="infos">
         <div class="stars">
           <span v-for="i in chefe.stars" :key="i">
@@ -51,12 +148,11 @@ const chefes = [
   flex-wrap: wrap;
   column-gap: 3.91vw;
   row-gap: 2vw;
-  justify-content: center
-
+  justify-content: center;
 }
-.card{
-    height: 36.11vh;
-    width: 15.10vw;
+.card {
+  height: 36.11vh;
+  width: 15.1vw;
 }
 .infos {
   top: 2.1vh;
@@ -84,10 +180,10 @@ const chefes = [
   height: 15.1vw;
   border-radius: 10px;
   box-shadow: 4px 4px 0px 0px rgba(190, 186, 186, 0.25);
-  transition: .4s;
+  transition: 0.6s;
 }
-.img:hover{
-cursor: pointer;
-border-radius: 15px;
+.img:hover {
+  cursor: pointer;
+  border-radius: 30px;
 }
 </style>

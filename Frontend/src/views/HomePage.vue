@@ -96,9 +96,9 @@ h1 {
 svg {
   overflow: hidden;
   position: fixed;
-  left: 725px;
+  left: 1200px;
   z-index: -1;
-  top: 140px;
+  top: 290px;
 }
 .title {
   width: 57.19vw;

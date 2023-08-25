@@ -1,7 +1,8 @@
 <script setup>
 import HeaderNav from '../components/HeaderNav.vue'
 import ChefsCard from '../components/ChefsCard.vue'
-import ButtonType from '../components/login/ButtonType.vue'
+
+
 </script>
 <template>
     <HeaderNav localto="ds" localto2="" localto3="" text1="" text2=""></HeaderNav>

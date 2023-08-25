@@ -1,49 +1,96 @@
 <script setup>
-const chefes = [
-  { id: 1, name: 'Eduardo', stars: 5, dollars: 5, pic:'https://avatars.githubusercontent.com/u/48130339?v=4' },
 
-]
+import { defineProps, onMounted } from 'vue';
+
+const props = defineProps(["chefe"])
+
+const chefe = {
+  'id': '',
+  'stars': '',
+  'name': '',
+  'pic': ''
+}
 </script>
 
 <template>
-    <div class="card" v-for="chefe in chefes" :key="chefe.id">
-        <div class="pfp"></div>
-        <h1>Name</h1>
-        <div  class="stars" >
-            <font-awesome-icon v-for="i in chefe.stars" :key="i" class="iconStar" icon="star" />
-        </div>
+  <div class="card">
+    <div class="pfp-circle"><img :src="chefe.pic" alt="" class="pfp" /></div>
+    <h1>{{ chefe.name }}</h1>
+    <div class="stars">
+      <font-awesome-icon v-for="i in chefe.stars" :key="i" class="iconStar" icon="star" />
     </div>
+    <div class="iconsgroup">
+      <div class="iconssquare">
+        <font-awesome-icon class="icons" icon="comment" />
+      </div>
+      <div class="iconssquare">
+        <font-awesome-icon class="icons" icon="eye" />
+      </div>
+      <div class="iconssquare">
+        <font-awesome-icon class="icons" icon="heart" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
+.icons{
+  width: 2.60vw;
+  height: 2.60vw;
+  color: white;
+}
+.iconsgroup{
+  display: flex;
+  width: 19.43vw;
+  gap: 60px;
+  justify-content: center;
+  top: 240px;
+  position: relative;
+
+}
+.iconssquare {
+  display: flex;
+  width: 7.01vh;
+  height: 7.01vh;
+  border-radius: 15px;
+  background: rgba(217, 217, 217, 0.07);
+  box-shadow: 5px 4px 4px 2px rgba(0, 0, 0, 0.25);
+  align-items: center;
+  justify-content: center;  
+}
+
 .card {
-    height: 77.78vh;
-    width: 28.64vw;
-    border-radius: 20px;
-    background: linear-gradient(180deg, #ff4848 0%, #ff6e4f 100%);
-    box-shadow: 10px 4px 4px 0px rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  height: 77.78vh;
+  width: 28.64vw;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #ff4848 0%, #ff6e4f 100%);
+  box-shadow: 10px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .pfp {
-    position: relative;
-    bottom: 60px;
-    width: 18.23vw;
-    height: 18.23vw;
-    border-radius: 374px;
-    background: linear-gradient(0deg, #efeded 0%, rgba(250, 249, 249, 0.84) 100%);
-    box-shadow: 10px 4px 4px 0px rgba(0, 0, 0, 0.15);
-
+  width: 18.23vw;
+  height: 18.23vw;
+  border-radius: 374px;
 }
-h1{
-    color: #FFF;
-font-family: Nunito;
-font-size: 40px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+.pfp-circle {
+  position: relative;
+  bottom: 60px;
+  width: 18.23vw;
+  height: 18.23vw;
+  border-radius: 374px;
+  background: linear-gradient(0deg, #efeded 0%, rgba(250, 249, 249, 0.84) 100%);
+  box-shadow: 10px 4px 4px 0px rgba(0, 0, 0, 0.15);
+}
+h1 {
+  color: #fff;
+  font-family: Nunito;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 .stars {
   display: flex;

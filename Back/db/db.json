@@ -381,11 +381,11 @@
     ],
     "usuarios" : [{
       "id":1,
-      "name": null,
-      "email": null,
-      "cpf": null,
-      "cep": null,
-      "password": null,
-      "confirmPassword": null
+      "name": "",
+      "email": "",
+      "cpf": "",
+      "cep": "",
+      "password": "",
+      "confirmPassword": ""
     }]
   }

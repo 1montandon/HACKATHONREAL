@@ -3,61 +3,73 @@ import { ref } from 'vue'
 import HeaderNav from '../components/HeaderNav.vue'
 import ButtonType from '../components/login/ButtonType.vue'
 import InputType from '../components/login/InputType.vue'
-import UsuariosApi from '../api/usuarios'
 
-const usuariosApi = new UsuariosApi();
+const users = ref({
+  name: '',
+  email: '',
+  cep: '',
+  cpf: '',
+  senha: '',
+  confirmaSenha: ''
+})
 
-const users = ref(
-  {
-    name: "",
-    email: "",
-    cep: "",
-    cpf: "",
-    senha: "",
-    confirmaSenha: ""
-  }
-)
+const newUsers = async (userData) => {
+  try {
+    const response = await fetch('localhost:3000/usuarios', {
+      method: 'POST',
+      headers: {
+        'Content-Type': '../Back/db/db.json'
+      },
+      body: JSON.stringify(userData)
+    })
 
-function viewAllUsers() {
-      users.value = usuariosApi.buscarTodosUsuarios();
+    if (response.ok) {
+      users.value.push(userData)
+    } else {
+      console.error('Erro ao adicionar usuário:', response.statusText)
     }
+  } catch (error) {
+    console.error('Erro na requisição:', error)
+  }
+}
 
 const showPassword = ref(false)
 </script>
 
 <template>
-<header-nav text1="" text2="" localto="" localto2="" localto3=""> </header-nav>
+  <header-nav text1="" text2="" localto="" localto2="" localto3=""> </header-nav>
 
-<main>
-  <div class="container">
-    <div class="titles">
-      <h1>REGISTER TO CONTINUE</h1>
-   
-    </div>
+  <main>
+    <div class="container">
+      <div class="titles">
+        <h1>REGISTER TO CONTINUE</h1>
+      </div>
     </div>
     <div class="inputs">
-        <InputType type="text" placeholder="name" icon="user"> </InputType>
-        <InputType type="email" placeholder="email" icon="envelope"> </InputType>
-        <InputType type="text" placeholder="cep" icon="location-dot"> </InputType>
-        <InputType type="email" placeholder="cpf" icon="address-card"> </InputType>
-        <InputType
-          @buttonClicked="showPassword = !showPassword"
-          :type="showPassword ? 'text' : 'password'"
-          placeholder="senha"
-          :icon="showPassword ? 'eye' : 'eye-slash'"
-        >
-        </InputType>
-        <InputType
-          @buttonClicked="showPassword = !showPassword"
-          :type="showPassword ? 'text' : 'password'"
-          placeholder="senha"
-          :icon="showPassword ? 'eye' : 'eye-slash'"
-        >
-        </InputType>
-        <div class="buttons">
-        <RouterLink to="/"><button-type class="button" buttontext="login"> </button-type></RouterLink>
+      <InputType type="text" placeholder="name" icon="user"> </InputType>
+      <InputType type="email" placeholder="email" icon="envelope"> </InputType>
+      <InputType type="text" placeholder="cep" icon="location-dot"> </InputType>
+      <InputType type="email" placeholder="cpf" icon="address-card"> </InputType>
+      <InputType
+        @buttonClicked="showPassword = !showPassword"
+        :type="showPassword ? 'text' : 'password'"
+        placeholder="senha"
+        :icon="showPassword ? 'eye' : 'eye-slash'"
+      >
+      </InputType>
+      <InputType
+        @buttonClicked="showPassword = !showPassword"
+        :type="showPassword ? 'text' : 'password'"
+        placeholder="senha"
+        :icon="showPassword ? 'eye' : 'eye-slash'"
+      >
+      </InputType>
+      <div class="buttons">
+        <RouterLink to="/" @click="newUsers"
+          ><button-type class="button" buttontext="Register"> </button-type
+        ></RouterLink>
       </div>
-      </div>
+    </div>
     <div class="footer">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +130,7 @@ const showPassword = ref(false)
         </defs>
       </svg>
     </div>
-</main>
+  </main>
 </template>
 
 <style scoped>

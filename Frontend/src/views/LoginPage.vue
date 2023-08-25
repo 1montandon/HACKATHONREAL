@@ -29,7 +29,9 @@ const showPassword = ref(false)
 
       <a class="forgotPass"> <RouterLink to="/"> FORGOT PASSWORD?</RouterLink> </a>
       <div class="buttons">
-        <button-type class="button" buttontext="login"> </button-type>
+        <RouterLink to="/principalpage"><button-type class="button" buttontext="login"> </button-type></RouterLink>
+
+        
         <RouterLink to="/registerpage"><button-type class="button" buttontext="register"> </button-type></RouterLink>
       </div>
     </div>

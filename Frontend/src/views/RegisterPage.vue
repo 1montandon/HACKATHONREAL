@@ -12,19 +12,29 @@ const users = ref({
   senha: '',
   confirmaSenha: ''
 })
+const enviar = ref(false)
 
-const newUsers = async (userData) => {
+function confirmar() {
+  if (users.value.senha != users.value.confirmaSenha) {
+    console.log('A senhas não coecidem')
+  } else {
+  return enviar.value = !enviar.value
+  }
+}
+
+const newUsers = async () => {
+  console.log(users.value.nome)
   try {
-    const response = await fetch('localhost:3000/usuarios', {
+    const response = await fetch('http://localhost:3000/usuarios', {
       method: 'POST',
       headers: {
         'Content-Type': '../Back/db/db.json'
       },
-      body: JSON.stringify(userData)
+      body: JSON.stringify(users.value)
     })
-
+    console.log(response)
     if (response.ok) {
-      users.value.push(userData)
+      console.log(response)
     } else {
       console.error('Erro ao adicionar usuário:', response.statusText)
     }
@@ -34,6 +44,12 @@ const newUsers = async (userData) => {
 }
 
 const showPassword = ref(false)
+
+function getValue(value, type) {
+  if(type == "user") users.value.nome = value;
+  if(type == "email") users.value.email = value;
+  if(type == "cep") users.value.cep = value;
+}
 </script>
 
 <template>
@@ -46,11 +62,12 @@ const showPassword = ref(false)
       </div>
     </div>
     <div class="inputs">
-      <InputType type="text" placeholder="name" icon="user"> </InputType>
-      <InputType type="email" placeholder="email" icon="envelope"> </InputType>
-      <InputType type="text" placeholder="cep" icon="location-dot"> </InputType>
-      <InputType type="email" placeholder="cpf" icon="address-card"> </InputType>
+      <InputType type="text" v-model="users.nome" placeholder="name" icon="user" :info="`user`" @get-value="getValue"></InputType>
+      <InputType type="email" v-model="users.email"  placeholder="email" icon="envelope" :info="`email`" @get-value="getValue"> </InputType>
+      <InputType type="text"  v-model="users.cep" placeholder="cep" icon="location-dot" :info="`cep`" @get-value="getValue"> </InputType>
+      <InputType type="email" v-model="users.cpf"  placeholder="cpf" icon="address-card" :info = "`cpf`" @get-value="getValue"> </InputType>
       <InputType
+        v-model="users.senha"
         @buttonClicked="showPassword = !showPassword"
         :type="showPassword ? 'text' : 'password'"
         placeholder="senha"
@@ -58,6 +75,7 @@ const showPassword = ref(false)
       >
       </InputType>
       <InputType
+        v-model="users.confirmaSenha"
         @buttonClicked="showPassword = !showPassword"
         :type="showPassword ? 'text' : 'password'"
         placeholder="senha"
@@ -65,7 +83,7 @@ const showPassword = ref(false)
       >
       </InputType>
       <div class="buttons">
-        <RouterLink to="/" @click="newUsers"
+        <RouterLink to="/" type="submit" @click="newUsers(), confirmar()"
           ><button-type class="button" buttontext="Register"> </button-type
         ></RouterLink>
       </div>

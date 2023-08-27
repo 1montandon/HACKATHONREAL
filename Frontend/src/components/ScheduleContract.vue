@@ -1,7 +1,7 @@
 <script setup></script>
 <template>
-  <div class="container">
-    <form action.prevent="">
+  <div class="form">
+    <form @submit.prevent="">
       <textarea placeholder="event descripton" id=""></textarea>
       <input placeholder="add location" class="local" type="text" />
       <div class="small-container">
@@ -22,11 +22,39 @@
           <input class="numberguest" type="number" id="" name="" value="" />
         </div>
       </div>
-      <button></button>
+      <div class="button-div"><button >concluir contrato</button> </div>
+      
     </form>
   </div>
 </template>
 <style scoped>
+button{
+    position: relative;
+    top: 30px;
+    outline: none;
+    border: none;
+    width: 15.10vw;
+    height: 6.02vh;
+    background-color: #FFF;
+filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.25));
+color: #000;
+font-family: Nunito;
+font-size: 25px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+border-radius: 40px;
+transition: .3s ease-in-out;
+}
+button:hover{
+    cursor: pointer;
+}
+button:active{
+    transform: scale(0.9);
+}
+.button-div{
+    display: flex;
+    justify-content: center}
 .date{
     outline: none;
     border: none;
@@ -155,7 +183,7 @@ form {
   margin-top: 6.02vh;
   margin-left: 1.93vw;
 }
-.container {
+.form {
   width: 52.6vw;
   height: 70.37vh;
   border-radius: 20px;

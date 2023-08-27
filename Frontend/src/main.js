@@ -15,10 +15,11 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { faAddressCard } from '@fortawesome/free-solid-svg-icons'
+import { faComment, faHeart, } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faEnvelope, faEye, faEyeSlash, faUser, faLocationDot, faAddressCard)
 
-library.add(faEnvelope, faEye, faEyeSlash, faStar, faDollarSign, faBurger, faCake, faBowlFood)
+library.add(faEnvelope, faEye, faEyeSlash, faStar, faDollarSign, faBurger, faCake, faBowlFood, faComment, faHeart)
 
 const app = createApp(App)
 

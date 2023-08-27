@@ -1,26 +1,28 @@
 <script setup>
+import { ref } from 'vue';
+
 
 const props = defineProps({
   placeholder: String,
   type: String,
   icon: String,
+  info: String,
 })
 
 const emits = defineEmits(['buttonClicked'])
+
+const value = ref('')
 
 </script>
 
 <template>
   <div class="inputTotal">
-    <input class="input" :v-model="props.type" :type="props.type" :placeholder="props.placeholder">
+    <input class="input" v-model="value" :type="props.type" :placeholder="props.placeholder" @change="$emit('getValue', value, props.info)">
 
 <div class="inputSquare" @click="emits('buttonClicked')">
   <font-awesome-icon class="icon"  :icon="props.icon" style="color: #000000;" />
 </div>
   </div>
-
-
-
 </template>
 
 <style scoped>

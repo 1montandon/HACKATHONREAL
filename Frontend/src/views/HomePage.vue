@@ -3,7 +3,7 @@ import HeaderNav from '../components/HeaderNav.vue'
 import ButtonType from '../components/login/ButtonType.vue';
 </script>
 <template>
-  <header-nav text1="Login" text2="SignUp" localto="/loginpage" localto2="" localto3=""> </header-nav>
+  <header-nav text1="Login" text2="SignUp" localto="/loginpage" localto2="/registerpage" localto3=""> </header-nav>
   <main class="container">
       <div class="title"><h1>the ideal chef for your will!</h1></div>
     <button-type class="button" buttontext="HIRE NOW">
@@ -96,9 +96,9 @@ h1 {
 svg {
   overflow: hidden;
   position: fixed;
-  left: 725px;
+  left: 800px;
   z-index: -1;
-  top: 140px;
+  top: 290px;
 }
 .title {
   width: 57.19vw;

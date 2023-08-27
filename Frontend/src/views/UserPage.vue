@@ -6,6 +6,13 @@ import ButtonType from '../components/login/ButtonType.vue'
 <template>
     <HeaderNav localto="ds" localto2="" localto3="" text1="" text2=""></HeaderNav>
     <main>
+
+
+
+<template>
+  <HeaderNav localto="ds" localto2="" localto3="" text1="" text2=""></HeaderNav>
+
+  <main>
         <div class="container">
             <ChefsCard></ChefsCard>
             <div class="smallbox-container">
@@ -15,6 +22,11 @@ import ButtonType from '../components/login/ButtonType.vue'
                         <input type="text" class="inputsmall">
                         <input type="text" class="inputsmall">
                     </div>
+
+                    <input type="email">
+                    <input type="text">
+                    <input type="text">
+
                     <button>edit</button>
                 </div>
                 <div class="small-box"><button>
@@ -26,6 +38,7 @@ import ButtonType from '../components/login/ButtonType.vue'
 </template>
 
 <style scoped>
+
 button {
     width: 14.79vw;
     height: 5vh;
@@ -49,6 +62,7 @@ cursor: pointer;
 button:active {
   transform: scale(0.9);
 }
+
 
 .carroselPhotos {
     height: 58.33vh;
@@ -74,16 +88,21 @@ button:active {
     background: linear-gradient(180deg, #ff4848 0%, #ff6e4f 100%);
     box-shadow: 10px 4px 4px 0px rgba(0, 0, 0, 0.15);
     display: flex;
+
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
 }
 
 .smallbox-container {
     display: flex;
     flex-direction: column;
     gap: 3.15vh;
+
 }
 
 .inputs{
@@ -96,3 +115,4 @@ button:active {
     margin: 6%;
 }
 </style>
+

@@ -24,6 +24,6 @@ import ChefsCard from '../components/ChefsCard.vue';
     height: 90vh;
 }
 .ChefsCard{
-    height: 760px;
+    height: 70.37vh;
 }
 </style>

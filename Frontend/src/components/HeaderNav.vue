@@ -1,4 +1,6 @@
 <script setup>
+const isLogged = localStorage.getItem('isLoggedIn') === 'true';
+
 // import {useRouter} from 'vue-router';
 // const router = useRouter();
 const props = defineProps({
@@ -17,7 +19,7 @@ const props = defineProps({
         <h1>Jame's</h1>
       </RouterLink>
     </div>
-    <nav class="NavText">
+    <nav v-if="isLogged" class="NavText">
       <div class="box-text">
         <RouterLink :to="props.localto">
           <h1>{{ props.text1 }}</h1>
@@ -29,10 +31,29 @@ const props = defineProps({
         </RouterLink>
       </div>
     </nav>
+    <nav class="NavText" v-else>
+      <RouterLink to="/userpage">
+          <div class="img"><img src="" alt=""></div>
+        </RouterLink>
+    </nav>
   </header>
 </template>
 
 <style scoped>
+.img{
+  width: 4vw;
+  height: 4vw;
+  border-radius: 100%;
+  background-color: black;
+  box-shadow: 5px 4px 4px 0px rgba(54, 53, 53, 0.068);
+  transition: .3s ease-in-out;
+}
+.img:hover{
+  transform: scale(1.05);
+}
+.img:active{
+  transform: scale(0.95);
+}
 .header {
   display: flex;
   width: 100%;
@@ -43,6 +64,7 @@ const props = defineProps({
   font-size: 48px;
   box-shadow: 5px 4px 4px 0px rgba(54, 53, 53, 0.068);
 }
+
 
 .logo img {
   width: 70px;

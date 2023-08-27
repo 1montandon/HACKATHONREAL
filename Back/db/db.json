@@ -1,179 +1,183 @@
 {
-    "categorias": [
-      {
-        "id": 1,
-        "descricao": "Doces de festa"
-      },
-      {
-        "descricao": "Pasta",
-        "id": 2
-      },
-      {
-        "descricao": "Hot Dog",
-        "id": 3
-      },
-      {
-        "descricao": "Burger",
-        "id": 4
-      },
-      {
-        "descricao": "Taco",
-        "id": 5
-      },
-      {
-        "descricao": "Sushi",
-        "id": 6
-      },
-      {
-        "descricao": "Seafood",
-        "id": 7
-      },
-      {
-        "descricao": "Pizza",
-        "id": 8
-      },
-      {
-        "descricao": "Drinks",
-        "id": 9
-      },
-      {
-        "descricao": "Spicy food",
-        "id": 10
-      },
-      {
-        "descricao": "Soup",
-        "id": 11
-      }
-    ],
-    "chefs": [
-      {
-        "id": 1,
-        "name": "Eduardo da Silva",
-        "categoriaId": 4,
-        "statusId": 1,
-        "pic": "https://i.ibb.co/FWtkg1m/Eduardo-da-Silva.png",
-        "stars": 5,
-        "dollars": 5
-      },
-      {
-        "id": 2,
-        "name": "Fabio Longo de Moura",
-        "categoriaId": 7,
-        "statusId": 1,
-        "pic": "https://i.ibb.co/m8Bt04z/Fabio.png",
-        "stars": 5,
-        "dollars": 5
-      },
-      {
-        "id": 3,
-        "name": "Marco André",
-        "categoriaId": 1,
-        "statusId": 1,
-        "pic": "https://i.ibb.co/zR9kv8x/marco-andre.png",
-        "stars": 5,
-        "dollars": 5
-      },
-      {
-        "id": 4,
-        "name": "James Salads Fruit",
-        "categoriaId": 7,
-        "statusId": 1,
-        "pic": "https://i.ibb.co/48RZQwF/james.png",
-        "stars": 5,
-        "dollars": 5
-      },
-      {
-        "id": 5,
-        "name": "João Vitor Gomes",
-        "categoriaId": 7,
-        "statusId": 1,
-        "pic": "https://i.ibb.co/7XdJpHq/jao.png",
-        "stars": 5,
-        "dollars": 5
-      },
-      {
-        "id": 6,
-        "name": "Eduardo Boaventura Montandon",
-        "categoriaId": 11,
-        "statusId": 1,
-        "pic": "https://i.ibb.co/SmgJS32/eduardo-montandon.png",
-        "stars": 5,
-        "dollars": 5
-      },
-        {
-        "id": 7,
-        "name": "Lucas liebl",
-        "categoriaId": 1,
-        "statusId": 1,
-        "pic": "https://i.ibb.co/t34Kb06/Lucas-liebl.png",
-        "stars": 5,
-        "dollars": 5
-      },
-      {
-        "id": 8,
-        "name": "Matheus Vidal Zenere",
-        "categoriaId": 5,
-        "statusId": 1,
-        "pic": "https://i.ibb.co/Fsp1gW1/matheus-zenere.png",
-        "stars": 5,
-        "dollars": 5
-      },
-      {
-        "id": 9,
-        "name": "Bruno Macedo",
-        "categoriaId": 5,
-        "statusId": 1,
-        "pic": "https://i.ibb.co/cktNXcc/bruno-marquesi.png",
-        "stars": 5,
-        "dollars": 5
-      }
-    ],
-    "status": [
-      {
-        "id": 1,
-        "tipo": "À disposição"
-      },
-      {
-        "id": 2,
-        "tipo": "Em trabalho"
-      }
-    ],
-    "avaliacoes": [
-      {
-        "id": 1,
-        "chefId": 48,
-        "stars": 1
-      },
-      {
-        "id": 2,
-        "chefId": 48,
-        "stars": 2
-      },
-      {
-        "id": 3,
-        "chefId": 48,
-        "stars": 1
-      },
-      {
-        "id": 4,
-        "chefId": 48,
-        "stars": 4
-      }
-    ],
-    "usuarios" : [{
-      "id":1,
-      "name": "",
-      "email": "",
-      "cpf": "",
-      "cep": "",
-      "password": "",
-      "confirmPassword": ""
+  "categorias": [
+    {
+      "id": 1,
+      "descricao": "Doces de festa"
+    },
+    {
+      "descricao": "Pasta",
+      "id": 2
+    },
+    {
+      "descricao": "Hot Dog",
+      "id": 3
+    },
+    {
+      "descricao": "Burger",
+      "id": 4
+    },
+    {
+      "descricao": "Taco",
+      "id": 5
+    },
+    {
+      "descricao": "Sushi",
+      "id": 6
+    },
+    {
+      "descricao": "Seafood",
+      "id": 7
+    },
+    {
+      "descricao": "Pizza",
+      "id": 8
+    },
+    {
+      "descricao": "Drinks",
+      "id": 9
+    },
+    {
+      "descricao": "Spicy food",
+      "id": 10
+    },
+    {
+      "descricao": "Soup",
+      "id": 11
+    }
+  ],
+  "chefs": [
+    {
+      "id": 1,
+      "name": "Eduardo da Silva",
+      "categoriaId": 4,
+      "statusId": 1,
+      "pic": "https://i.ibb.co/FWtkg1m/Eduardo-da-Silva.png",
+      "stars": 5,
+      "dollars": 5
+    },
+    {
+      "id": 2,
+      "name": "Fabio Longo de Moura",
+      "categoriaId": 7,
+      "statusId": 1,
+      "pic": "https://i.ibb.co/m8Bt04z/Fabio.png",
+      "stars": 5,
+      "dollars": 5
+    },
+    {
+      "id": 3,
+      "name": "Marco André",
+      "categoriaId": 1,
+      "statusId": 1,
+      "pic": "https://i.ibb.co/zR9kv8x/marco-andre.png",
+      "stars": 5,
+      "dollars": 5
+    },
+    {
+      "id": 4,
+      "name": "James Salads Fruit",
+      "categoriaId": 7,
+      "statusId": 1,
+      "pic": "https://i.ibb.co/48RZQwF/james.png",
+      "stars": 5,
+      "dollars": 5
+    },
+    {
+      "id": 5,
+      "name": "João Vitor Gomes",
+      "categoriaId": 7,
+      "statusId": 1,
+      "pic": "https://i.ibb.co/7XdJpHq/jao.png",
+      "stars": 5,
+      "dollars": 5
+    },
+    {
+      "id": 6,
+      "name": "Eduardo Boaventura Montandon",
+      "categoriaId": 11,
+      "statusId": 1,
+      "pic": "https://i.ibb.co/SmgJS32/eduardo-montandon.png",
+      "stars": 5,
+      "dollars": 5
+    },
+    {
+      "id": 7,
+      "name": "Lucas liebl",
+      "categoriaId": 1,
+      "statusId": 1,
+      "pic": "https://i.ibb.co/t34Kb06/Lucas-liebl.png",
+      "stars": 5,
+      "dollars": 5
+    },
+    {
+      "id": 8,
+      "name": "Matheus Vidal Zenere",
+      "categoriaId": 5,
+      "statusId": 1,
+      "pic": "https://i.ibb.co/Fsp1gW1/matheus-zenere.png",
+      "stars": 5,
+      "dollars": 5
+    },
+    {
+      "id": 9,
+      "name": "Bruno Macedo",
+      "categoriaId": 5,
+      "statusId": 1,
+      "pic": "https://i.ibb.co/cktNXcc/bruno-marquesi.png",
+      "stars": 5,
+      "dollars": 5
+    }
+  ],
+  "status": [
+    {
+      "id": 1,
+      "tipo": "À disposição"
+    },
+    {
+      "id": 2,
+      "tipo": "Em trabalho"
+    }
+  ],
+  "avaliacoes": [
+    {
+      "id": 1,
+      "chefId": 48,
+      "stars": 1
+    },
+    {
+      "id": 2,
+      "chefId": 48,
+      "stars": 2
+    },
+    {
+      "id": 3,
+      "chefId": 48,
+      "stars": 1
+    },
+    {
+      "id": 4,
+      "chefId": 48,
+      "stars": 4
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "name": "Eduardo",
+      "email": "emontandon",
+      "cpf": "1",
+      "cep": "2",
+      "password": "123",
+      "confirmPassword": "123"
     },
     {
       "id": 2
     },
     {
       "id": 3
+    },
+    {
+      "id": 4
     }
   ]
 }

@@ -96,7 +96,7 @@ h1 {
 svg {
   overflow: hidden;
   position: fixed;
-  left: 700px;
+  left: 800px;
   z-index: -1;
   top: 290px;
 }

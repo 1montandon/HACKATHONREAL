@@ -1,5 +1,5 @@
 import axios from "axios";
-export default class UsuariosApi{
+class UsuariosApi{
   async buscarTodosUsuarios() {
     const response = await axios.get("http://localhost:3000/usuarios/");
     return response.data;
@@ -24,3 +24,5 @@ export default class UsuariosApi{
     return response.data;
   }
 }
+
+export default new UsuariosApi();

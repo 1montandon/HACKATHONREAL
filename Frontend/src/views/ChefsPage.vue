@@ -17,7 +17,7 @@ const props = defineProps({
 })
 onMounted(async () => {
   chefes.value = await chefsApi.buscarTodosOsChefs()
-  chefe.value = chefes.value.find((iten) => iten.id == props.id)
+  chefe.value = chefes.value.find((item) => item.id == props.id)
 })
 </script>
 <template>

@@ -1,8 +1,37 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import HeaderNav from '../components/HeaderNav.vue'
 import ButtonType from '../components/login/ButtonType.vue'
 import InputType from '../components/login/InputType.vue'
+import usuariosApi from '../api/usuarios.js'
+
+const allUsers = ref({
+})
+
+const users = ref({
+
+})
+
+async function login() {
+  allUsers.value = await usuariosApi.buscarTodosUsuarios()
+  console.log(allUsers.value.find((item) => item.email == users.value.email))
+}
+function getValue(value, type) {
+  if(type == "email") users.value.email = value;
+  if(type == "senha") users.value.senha = value;
+}
+const props = defineProps({
+  id: {
+    type: Number,
+    required: true
+  }
+})
+onMounted(async () => {
+  users.value = await usuariosApi.buscarTodosUsuarios()
+  users.value = usuariosApi.value.find((item) => item.id == props.id)
+  console.log(users.value)
+})
+
 
 const showPassword = ref(false)
 </script>
@@ -17,19 +46,20 @@ const showPassword = ref(false)
       </div>
 
       <div class="inputs">
-        <InputType type="email" placeholder="email" icon="envelope"> </InputType>
+        <InputType type="email" placeholder="email" icon="envelope"  @get-value="getValue"> </InputType>
         <InputType
           @buttonClicked="showPassword = !showPassword"
           :type="showPassword ? 'text' : 'password'"
           placeholder="senha"
           :icon="showPassword ? 'eye' : 'eye-slash'"
+          @get-value="getValue"
         >
         </InputType>
       </div>
 
       <a class="forgotPass"> <RouterLink to="/"> FORGOT PASSWORD?</RouterLink> </a>
       <div class="buttons">
-        <RouterLink to="/principalpage"><button-type class="button" buttontext="login"> </button-type></RouterLink>
+        <RouterLink to="/loginpage"><button-type class="button" buttontext="login" @click="login()"> </button-type></RouterLink>
 
         
         <RouterLink to="/registerpage"><button-type class="button" buttontext="register"> </button-type></RouterLink>

@@ -164,26 +164,18 @@
     {
       "id": 1,
       "name": "Eduardo",
-      "email": "emontandon",
+      "email": "emontandon@gmail.com",
       "cpf": "1",
       "cep": "2",
-      "password": "123",
-      "confirmPassword": "123"
+      "senha": "123"
     },
     {
+      "name": "sdasd",
+      "email": "dasdas",
+      "cep": "dasd",
+      "cpf": "",
+      "senha": "",
       "id": 2
-    },
-    {
-      "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
-    },
-    {
-      "id": 6
     }
   ]
 }

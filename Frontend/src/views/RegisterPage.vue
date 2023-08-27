@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import HeaderNav from '../components/HeaderNav.vue'
 import ButtonType from '../components/login/ButtonType.vue'
 import InputType from '../components/login/InputType.vue'
+import usuariosApi from '../api/usuarios.js'
 
 const users = ref({
   name: '',
@@ -22,35 +23,22 @@ function confirmar() {
   }
 }
 
-const newUsers = async () => {
-  console.log(users.value.nome)
-  try {
-    const response = await fetch('http://localhost:3000/usuarios', {
-      method: 'POST',
-      headers: {
-        'Content-Type': '../Back/db/db.json'
-      }, 
-      body: JSON.stringify(users.value)
-    })
-    console.log(response)
-    if (response.ok) {
-      localStorage.setItem("loggedin", true)
-      console.log(response)
-    } else {
-      console.error('Erro ao adicionar usuário:', response.statusText)
-    }
-  } catch (error) {
-    console.error('Erro na requisição:', error)
-  }
+async function register() {
+  await usuariosApi.adicionarUsuarios(users.value)
+  console.log(users.value.name)
 }
 
 const showPassword = ref(false)
 
 function getValue(value, type) {
-  if(type == "user") users.value.nome = value;
+  if(type == "user") users.value.name = value;
   if(type == "email") users.value.email = value;
   if(type == "cep") users.value.cep = value;
+  if(type == "cpf") users.value.cpf = value;
+  if(type == "senha") users.value.senha = value;
 }
+
+
 </script>
 
 <template>
@@ -84,7 +72,7 @@ function getValue(value, type) {
       >
       </InputType>
       <div class="buttons">
-        <RouterLink to="/" type="submit" @click="newUsers(), confirmar()"
+        <RouterLink to="/" type="submit" @click="register(), confirmar()"
           ><button-type class="button" buttontext="Register"> </button-type
         ></RouterLink>
       </div>

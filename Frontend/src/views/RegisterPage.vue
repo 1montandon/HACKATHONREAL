@@ -29,11 +29,12 @@ const newUsers = async () => {
       method: 'POST',
       headers: {
         'Content-Type': '../Back/db/db.json'
-      },
+      }, 
       body: JSON.stringify(users.value)
     })
     console.log(response)
     if (response.ok) {
+      localStorage.setItem("loggedin", true)
       console.log(response)
     } else {
       console.error('Erro ao adicionar usuário:', response.statusText)

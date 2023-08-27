@@ -1,6 +1,7 @@
 <script setup>
 import HeaderNav from '../components/HeaderNav.vue'
 import ChefsCard from '../components/ChefsCard.vue'
+import FoodCarrosel from '../components/FoodCarrosel.vue'
 import chefsApi from '../api/chefes.js'
 import { ref } from 'vue'
 import { onMounted } from 'vue'
@@ -20,10 +21,11 @@ onMounted(async () => {
 })
 </script>
 <template>
-  <HeaderNav localto="ds" localto2="" localto3="" text1="" text2=""></HeaderNav>
+  <HeaderNav localto="about" localto2="" localto3="" text1="oi" text2=""></HeaderNav>
   <main>
     <div class="container">
-      <div class="carroselPhotos"></div>
+      <FoodCarrosel >      </FoodCarrosel>
+
       <ChefsCard :chefe="chefe"></ChefsCard>
       <div class="smallbox-container">
         <div class="small-box">
@@ -59,13 +61,7 @@ button:active {
   transform: scale(0.9);
 }
 
-.carroselPhotos {
-  height: 58.33vh;
-  width: 28.65vw;
-  border-radius: 20px;
-  background: #cbc3c3;
-  box-shadow: 10px 4px 4px 0px rgba(0, 0, 0, 0.15);
-}
+
 
 .container {
   position: relative;

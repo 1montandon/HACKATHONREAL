@@ -1,5 +1,6 @@
 <script setup>
-const isLogged = localStorage.getItem('isLoggedIn') === 'true';
+import { ref } from 'vue';
+const isLogged = ref(false);
 
 // import {useRouter} from 'vue-router';
 // const router = useRouter();
@@ -19,7 +20,12 @@ const props = defineProps({
         <h1>Jame's</h1>
       </RouterLink>
     </div>
-    <nav v-if="isLogged" class="NavText">
+    <nav class="NavText" v-if="isLogged === true">
+      <RouterLink to="/userpage">
+          <div class="img"><img src="" alt=""></div>
+        </RouterLink>
+    </nav>
+    <nav v-else class="NavText">
       <div class="box-text">
         <RouterLink :to="props.localto">
           <h1>{{ props.text1 }}</h1>
@@ -30,11 +36,6 @@ const props = defineProps({
           <h1>{{ props.text2 }}</h1>
         </RouterLink>
       </div>
-    </nav>
-    <nav class="NavText" v-else>
-      <RouterLink to="/userpage">
-          <div class="img"><img src="" alt=""></div>
-        </RouterLink>
     </nav>
   </header>
 </template>

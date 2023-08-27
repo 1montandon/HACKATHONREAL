@@ -1,23 +1,18 @@
 <script setup>
-
-import { defineProps, onMounted } from 'vue';
-
-const props = defineProps(["chefe"])
-
-const chefe = {
-  'id': '',
-  'stars': '',
-  'name': '',
-  'pic': ''
-}
+const props = defineProps({
+  chefe: {
+    type: Object,
+    required: true,
+  },
+});
 </script>
 
 <template>
   <div class="card">
-    <div class="pfp-circle"><img :src="chefe.pic" alt="" class="pfp" /></div>
-    <h1>{{ chefe.name }}</h1>
+    <div class="pfp-circle"><img :src="chefe?.pic" alt="" class="pfp" /></div>
+    <h1>{{ chefe?.name }}</h1>
     <div class="stars">
-      <font-awesome-icon v-for="i in chefe.stars" :key="i" class="iconStar" icon="star" />
+      <font-awesome-icon v-for="i in chefe?.stars" :key="i" class="iconStar" icon="star" />
     </div>
     <div class="iconsgroup">
       <div class="iconssquare">

@@ -1,129 +1,30 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
+import { onMounted, ref } from 'vue'
+import chefsApi from '../api/chefes.js'
 
+const chefes = ref()
 const router = useRouter()
-const chefes = [
-  {
-    id: 1,
-    name: 'Eduardo',
-    stars: 5,
-    dollars: 5,
-    pic: 'https://avatars.githubusercontent.com/u/48130339?v=4'
-  },
-  {
-    id: 2,
-    name: 'Monta',
-    stars: 5,
-    dollars: 3,
-    pic: 'https://avatars.githubusercontent.com/u/849206?v=4'
-  },
-  {
-    id: 1,
-    name: 'BLABLA',
-    stars: 5,
-    dollars: 1,
-    pic: 'https://avatars.githubusercontent.com/u/165224?v=4'
-  },
-  {
-    id: 1,
-    name: 'Eduardo FOrget',
-    stars: 2,
-    dollars: 4,
-    pic: 'https://zonamista.com.br/wp-content/uploads/2023/07/sashaa.jpg'
-  },
-  {
-    id: 1,
-    name: 'Eduardo',
-    stars: 5,
-    dollars: 5,
-    pic: 'https://avatars.githubusercontent.com/u/48130339?v=4'
-  },
-  {
-    id: 2,
-    name: 'Monta',
-    stars: 5,
-    dollars: 3,
-    pic: 'https://avatars.githubusercontent.com/u/849206?v=4'
-  },
-  {
-    id: 1,
-    name: 'BLABLA',
-    stars: 5,
-    dollars: 1,
-    pic: 'https://avatars.githubusercontent.com/u/165224?v=4'
-  },
-  {
-    id: 1,
-    name: 'Eduardo FOrget',
-    stars: 2,
-    dollars: 4,
-    pic: 'https://zonamista.com.br/wp-content/uploads/2023/07/sashaa.jpg'
-  },
-  {
-    id: 1,
-    name: 'Eduardo',
-    stars: 5,
-    dollars: 5,
-    pic: 'https://avatars.githubusercontent.com/u/48130339?v=4'
-  },
-  {
-    id: 2,
-    name: 'Monta',
-    stars: 5,
-    dollars: 3,
-    pic: 'https://avatars.githubusercontent.com/u/849206?v=4'
-  },
-  {
-    id: 2,
-    name: 'Monta',
-    stars: 5,
-    dollars: 3,
-    pic: 'https://avatars.githubusercontent.com/u/849206?v=4'
-  },
-  {
-    id: 1,
-    name: 'BLABLA',
-    stars: 5,
-    dollars: 1,
-    pic: 'https://avatars.githubusercontent.com/u/165224?v=4'
-  },
-  {
-    id: 1,
-    name: 'Eduardo FOrget',
-    stars: 2,
-    dollars: 4,
-    pic: 'https://zonamista.com.br/wp-content/uploads/2023/07/sashaa.jpg'
-  },
-  {
-    id: 1,
-    name: 'Eduardo',
-    stars: 5,
-    dollars: 5,
-    pic: 'https://avatars.githubusercontent.com/u/48130339?v=4'
-  },
-  {
-    id: 2,
-    name: 'Monta',
-    stars: 5,
-    dollars: 3,
-    pic: 'https://avatars.githubusercontent.com/u/849206?v=4'
-  }
-]
-function getInfo(chefe){
-  router.push({ name: "chefspage", params: { chefe: chefe, id: chefe.id } });
+
+onMounted(async () => {
+  chefes.value = await chefsApi.buscarTodosOsChefs()
+})
+
+function selectChef(chefe) {
+  router.push({ name: 'chefspage', params: { id: chefe.id } })
 }
+
 </script>
 
 <template>
   <div class="chefes">
     <div class="card" v-for="chefe in chefes" :key="chefe.id">
-        <div>
-        <RouterLink @click="getInfo(chefe)" to="/chefspage">
+      <div>
+        <RouterLink @click="selectChef(chefe)" to="/chefspage">
           <img class="img" :src="chefe.pic" alt="" />
         </RouterLink>
-
-          </div>
+      </div>
       <div class="infos">
         <div class="stars">
           <span v-for="i in chefe.stars" :key="i">

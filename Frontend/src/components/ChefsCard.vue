@@ -2,18 +2,24 @@
 const props = defineProps({
   chefe: {
     type: Object,
-    required: true,
-  },
-});
+    required: true
+  }
+})
 </script>
 
 <template>
   <div class="card">
     <div class="pfp-circle"><img :src="chefe?.pic" alt="" class="pfp" /></div>
     <h1>{{ chefe?.name }}</h1>
-    <div class="stars">
-      <font-awesome-icon v-for="i in chefe?.stars" :key="i" class="iconStar" icon="star" />
+    <div class="iconsreal">
+      <div class="stars">
+        <font-awesome-icon v-for="i in chefe?.stars" :key="i" class="iconStar" icon="star" />
+      </div>
+      <div class="dollars">
+        <font-awesome-icon v-for="i in chefe?.dollars" :key="i" class="iconMoney" icon="dollar" />
+      </div>
     </div>
+
     <div class="iconsgroup">
       <div class="iconssquare">
         <font-awesome-icon class="icons" icon="comment" />
@@ -29,19 +35,25 @@ const props = defineProps({
 </template>
 
 <style scoped>
-.icons{
-  width: 2.60vw;
-  height: 2.60vw;
+.iconsreal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  
+}
+.icons {
+  width: 2.6vw;
+  height: 2.6vw;
   color: white;
 }
-.iconsgroup{
+.iconsgroup {
   display: flex;
   width: 19.43vw;
   gap: 60px;
   justify-content: center;
-  top: 240px;
+  top: 160px;
   position: relative;
-
 }
 .iconssquare {
   display: flex;
@@ -51,7 +63,7 @@ const props = defineProps({
   background: rgba(217, 217, 217, 0.07);
   box-shadow: 5px 4px 4px 2px rgba(0, 0, 0, 0.25);
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
 }
 
 .card {
@@ -96,5 +108,10 @@ h1 {
   width: 2vw;
   height: 2vw;
   color: rgb(255, 208, 0);
+}
+.iconMoney {
+  width: 2vw;
+  height: 1.8vw;
+  color: rgb(255, 255, 255);
 }
 </style>

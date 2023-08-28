@@ -4,39 +4,65 @@ import HeaderNav from '../components/HeaderNav.vue'
 import ButtonType from '../components/login/ButtonType.vue'
 import InputType from '../components/login/InputType.vue'
 import usuariosApi from '../api/usuarios.js'
+import { isLogged } from '../api/IsLoggedModule'
+import { useRouter } from 'vue-router';
+const router = useRouter()
+
+
+const errors = ref('')
+const showError = ref(false)
+
 
 const allUsers = ref({
+  
 })
 
 const users = ref({
-
+  email: '',
+  senha: ''
 })
 
 async function login() {
-  allUsers.value = await usuariosApi.buscarTodosUsuarios()
-  console.log(allUsers.value.find((item) => item.email == users.value.email))
-}
-function getValue(value, type) {
-  if(type == "email") users.value.email = value;
-  if(type == "senha") users.value.senha = value;
-}
-const props = defineProps({
-  id: {
-    type: Number,
-    required: true
+  if (users.value.email == '' || users.value.senha == '') {
+    errors.value = 'campos vazios'
+    showError.value = true
+  } else if (!/^[^@]+@\w+(\.\w+)+\w$/.test(users.value.email)) {
+    errors.value = 'Email invalido!'
+    showError.value = true
+  } else if (users.value.senha.length < 3) {
+    errors.value = 'Senha muito curta!'
+    showError.value = true
+  } else if(validaUser(users.value.email,users.value.senha ) === false){
+    errors.value = 'Email ou Senha invalidos!'
+    showError.value = true
   }
-})
-onMounted(async () => {
-  users.value = await usuariosApi.buscarTodosUsuarios()
-  users.value = usuariosApi.value.find((item) => item.id == props.id)
-  console.log(users.value)
-})
+  else {
+    isLogged.value = true;
+    errors.value = '';
+    showError.value = false;
+    router.push('/')
+    
+  }
+}
 
+function validaUser(email, senha) {
+  const user = allUsers.value.find((user) => user.email === email && user.senha === senha)
+  return user === undefined ? false : true
+}
+
+function getValue(value, info) {
+  if (info == 'email') users.value.email = value
+  if (info == 'senha') users.value.senha = value
+}
+
+onMounted(async () => {
+  allUsers.value = await usuariosApi.buscarTodosUsuarios()
+})
 
 const showPassword = ref(false)
 </script>
 <template>
-  <header-nav text1="" text2="" localto="" localto2="" localto3=""> </header-nav>
+  <header-nav text1="" text2="" localto="" localto2=""> </header-nav>
 
   <main>
     <div class="container">
@@ -46,23 +72,36 @@ const showPassword = ref(false)
       </div>
 
       <div class="inputs">
-        <InputType type="email" placeholder="email" icon="envelope"  @get-value="getValue"> </InputType>
+        <InputType
+          type="email"
+          placeholder="email"
+          icon="envelope"
+          :info="'email'"
+          @get-value="getValue"
+        >
+        </InputType>
         <InputType
           @buttonClicked="showPassword = !showPassword"
           :type="showPassword ? 'text' : 'password'"
           placeholder="senha"
           :icon="showPassword ? 'eye' : 'eye-slash'"
+          :info="'senha'"
           @get-value="getValue"
         >
         </InputType>
       </div>
 
-      <a class="forgotPass"> <RouterLink to="/"> FORGOT PASSWORD?</RouterLink> </a>
+      <div class="error">
+        <div v-if="showError">{{ errors }}</div>
+      </div>
       <div class="buttons">
-        <RouterLink to="/loginpage"><button-type class="button" buttontext="login" @click="login()"> </button-type></RouterLink>
+        <RouterLink to="/loginpage"
+          ><button-type class="button" buttontext="login" @click="login()"> </button-type
+        ></RouterLink>
 
-        
-        <RouterLink to="/registerpage"><button-type class="button" buttontext="register"> </button-type></RouterLink>
+        <RouterLink to="/registerpage"
+          ><button-type class="button" buttontext="register"> </button-type
+        ></RouterLink>
       </div>
     </div>
     <div class="footer">
@@ -172,31 +211,22 @@ svg {
 a {
   color: rgba(28, 119, 225, 0.6);
 }
-.forgotPass {
+.error {
+  top: 2vh;
+  position: relative;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
   width: 29vw;
+  height: 2vh;
   margin-bottom: 52px;
-  color: rgba(28, 119, 225, 0.6);
+  color: rgb(225, 28, 28);
   font-family: Nunito;
   font-size: 13px;
   font-style: normal;
   font-weight: 800;
 }
 
-a:link {
-  text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-a:active {
-  text-decoration: none;
-}
 h1 {
   color: #000;
   font-family: Nunito;

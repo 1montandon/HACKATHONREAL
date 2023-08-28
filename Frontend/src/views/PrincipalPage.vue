@@ -1,13 +1,11 @@
 <script setup>
 import HeaderNav from '../components/HeaderNav.vue'
 import FoodCard from '../components/FoodCard.vue'
-import FoodCategories from '../components/FoodCategories.vue'
-</script>
+ </script>
 <template>
-  <HeaderNav localto="ds" localto2="" localto3="" text1="" text2=""></HeaderNav>
+  <HeaderNav localto="ds" localto2="" text1="" text2=""></HeaderNav>
   <main>
     <div class="container"> 
-    <FoodCategories class="foodCategories"></FoodCategories>
 
     <FoodCard class="foodCard"></FoodCard>
 </div>
@@ -22,7 +20,7 @@ import FoodCategories from '../components/FoodCategories.vue'
 }
 
 .foodCard {
-  top: 4.17vh;
+  top: 7.17vh;
   position: relative;
 }
 </style>

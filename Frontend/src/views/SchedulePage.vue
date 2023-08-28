@@ -2,12 +2,30 @@
 import HeaderNav from '../components/HeaderNav.vue';
 import ScheduleContract from '../components/ScheduleContract.vue';
 import ChefsCard from '../components/ChefsCard.vue';
+import { onMounted } from 'vue';
+import { ref } from 'vue';
+import chefsApi from '../api/chefes.js'
+
+const chefes = ref()
+const chefe = ref()
+
+const props = defineProps({
+  id: {
+    type: Number,
+    required: true
+  }
+})
+onMounted(async () => {
+  chefes.value = await chefsApi.buscarTodosOsChefs()
+  chefe.value = chefes.value.find((item) => item.id == props.id)
+})
+
 </script>
 <template>
-        <HeaderNav localto="ds" localto2="" localto3="" text1="" text2=""></HeaderNav>
+        <HeaderNav localto="ds" localto2="" text1="" text2=""></HeaderNav>
 
     <main><div class="wholecontainer"><ScheduleContract></ScheduleContract>
-    <ChefsCard class="ChefsCard"></ChefsCard>
+    <ChefsCard class="ChefsCard" :chefe="chefe"></ChefsCard>
 </div>
 </main>
     

@@ -4,6 +4,11 @@ import HeaderNav from '../components/HeaderNav.vue'
 import ButtonType from '../components/login/ButtonType.vue'
 import InputType from '../components/login/InputType.vue'
 import usuariosApi from '../api/usuarios.js'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const errors = ref('')
+const showError = ref(false)
 
 const users = ref({
   name: '',
@@ -13,50 +18,88 @@ const users = ref({
   senha: '',
   confirmaSenha: ''
 })
-const enviar = ref(false)
 
 function confirmar() {
   if (users.value.senha != users.value.confirmaSenha) {
-    console.log('A senhas não coecidem')
-  } else {
-  return enviar.value = !enviar.value
-  }
-}
+    errors.value = 'As senhas não coecidem!'
+    showError.value = true
+    console.log("3")
 
-async function register() {
-  await usuariosApi.adicionarUsuarios(users.value)
-  console.log(users.value.name)
-}
+  } else if (users.value.senha.length > 3) {
+    errors.value = 'Senha muito curta!'
+    showError.value = true
+    console.log("4")
+
+  } else {
+    return register()
+  }
+  }
+
+  async function register() {
+      await usuariosApi.adicionarUsuarios(users.value)
+      console.log(users.value.name)
+      router.push("/")
+    
+  }
 
 const showPassword = ref(false)
 
-function getValue(value, type) {
-  if(type == "user") users.value.name = value;
-  if(type == "email") users.value.email = value;
-  if(type == "cep") users.value.cep = value;
-  if(type == "cpf") users.value.cpf = value;
-  if(type == "senha") users.value.senha = value;
+function getValue(value, info) {
+  if (info == 'user') users.value.name = value
+  if (info == 'email') users.value.email = value
+  if (info == 'cep') users.value.cep = value
+  if (info == 'cpf') users.value.cpf = value
+  if (info == 'senha') users.value.senha = value
 }
-
-
 </script>
 
 <template>
-  <header-nav text1="" text2="" localto="" localto2="" localto3=""> </header-nav>
+  <header-nav text1="" text2="" localto="" localto2=""> </header-nav>
 
   <main>
     <div class="container">
+
       <div class="titles">
         <h1>REGISTER TO CONTINUE</h1>
       </div>
+
+      <div class="error">
+      <div v-if="showError">{{ errors }}</div>
     </div>
+  
     <div class="inputs">
-      <InputType type="text" v-model="users.nome" placeholder="name" icon="user" :info="`user`" @get-value="getValue"></InputType>
-      <InputType type="email" v-model="users.email"  placeholder="email" icon="envelope" :info="`email`" @get-value="getValue"> </InputType>
-      <InputType type="text"  v-model="users.cep" placeholder="cep" icon="location-dot" :info="`cep`" @get-value="getValue"> </InputType>
-      <InputType type="email" v-model="users.cpf"  placeholder="cpf" icon="address-card" :info = "`cpf`" @get-value="getValue"> </InputType>
       <InputType
-        v-model="users.senha"
+        type="text"
+        placeholder="name"
+        icon="user"
+        :info="`user`"
+        @get-value="getValue"
+      ></InputType>
+      <InputType
+        type="email"
+        placeholder="email"
+        icon="envelope"
+        :info="`email`"
+        @get-value="getValue"
+      >
+      </InputType>
+      <InputType
+        type="text"
+        placeholder="cep"
+        icon="location-dot"
+        :info="`cep`"
+        @get-value="getValue"
+      >
+      </InputType>
+      <InputType
+        type="email"
+        placeholder="cpf"
+        icon="address-card"
+        :info="`cpf`"
+        @get-value="getValue"
+      >
+      </InputType>
+      <InputType
         @buttonClicked="showPassword = !showPassword"
         :type="showPassword ? 'text' : 'password'"
         placeholder="senha"
@@ -64,7 +107,6 @@ function getValue(value, type) {
       >
       </InputType>
       <InputType
-        v-model="users.confirmaSenha"
         @buttonClicked="showPassword = !showPassword"
         :type="showPassword ? 'text' : 'password'"
         placeholder="senha"
@@ -72,12 +114,15 @@ function getValue(value, type) {
       >
       </InputType>
       <div class="buttons">
-        <RouterLink to="/" type="submit" @click="register(), confirmar()"
-          ><button-type class="button" buttontext="Register"> </button-type
-        ></RouterLink>
+        <button-type class="button" buttontext="Register" @click="confirmar()">
+        </button-type>
       </div>
+      
     </div>
-    <div class="footer">
+  </div>
+</main>
+
+  <div class="footer">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="1855"
@@ -137,10 +182,25 @@ function getValue(value, type) {
         </defs>
       </svg>
     </div>
-  </main>
 </template>
 
 <style scoped>
+.error {
+  top: 25px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  width: 29vw;
+  height: 2vh;
+  margin-bottom: 52px;
+  color: rgb(225, 28, 28);
+  font-family: Nunito;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 800;
+  position: relative;
+  align-items: center
+}
 main {
   max-height: calc(100%-100px);
   overflow-y: hidden;
@@ -167,7 +227,6 @@ svg {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12.22vh;
   margin-top: 40px;
 }
 .inputs {

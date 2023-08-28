@@ -1,6 +1,5 @@
 <script setup>
-import { ref } from 'vue';
-const isLogged = ref(false);
+import { isLogged } from '../api/IsLoggedModule';
 
 // import {useRouter} from 'vue-router';
 // const router = useRouter();
@@ -9,39 +8,59 @@ const props = defineProps({
   text2: String,
   localto: String,
   localto2: String,
-  localto3: String
 })
 </script>
 <template>
   <header class="header">
     <div>
-      <RouterLink to="/" class="logo">
+      <RouterLink v-if="isLogged === true" to="/principalpage" class="logo">
         <img src="https://i.imgur.com/7TZ6Sm6.png" alt="" />
         <h1>Jame's</h1>
       </RouterLink>
+
+      <RouterLink v-else to="/" class="logo">
+        <img src="https://i.imgur.com/7TZ6Sm6.png" alt="" />
+        <h1>Jame's</h1>
+      </RouterLink>
+
     </div>
+
     <nav class="NavText" v-if="isLogged === true">
       <RouterLink to="/userpage">
-          <div class="img"><img src="" alt=""></div>
+          <div class="img-logo"><img class="img" src="https://i.ibb.co/V3FC2xk/f90ba86f-6ef5-4420-a965-9b0a891c536f.jpg" alt=""></div>
         </RouterLink>
     </nav>
+
     <nav v-else class="NavText">
+
       <div class="box-text">
         <RouterLink :to="props.localto">
           <h1>{{ props.text1 }}</h1>
         </RouterLink>
       </div>
+
       <div class="box-text">
         <RouterLink :to="props.localto2">
           <h1>{{ props.text2 }}</h1>
         </RouterLink>
       </div>
+
     </nav>
+
   </header>
 </template>
 
 <style scoped>
 .img{
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  box-shadow: 5px 4px 4px 0px rgba(54, 53, 53, 0.068);
+
+
+}
+.img-logo{
+  outline: 2px solid white;
   width: 4vw;
   height: 4vw;
   border-radius: 100%;
@@ -49,10 +68,10 @@ const props = defineProps({
   box-shadow: 5px 4px 4px 0px rgba(54, 53, 53, 0.068);
   transition: .3s ease-in-out;
 }
-.img:hover{
+.img-logo:hover{
   transform: scale(1.05);
 }
-.img:active{
+.img-logo:active{
   transform: scale(0.95);
 }
 .header {

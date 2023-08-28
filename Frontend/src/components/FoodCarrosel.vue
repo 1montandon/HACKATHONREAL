@@ -1,4 +1,11 @@
 <script setup>
+import { defineProps } from 'vue';
+const props = defineProps({
+  chefe: {
+    type: Object,
+    required: true,
+  },
+});
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 let count = ref(1);
@@ -23,6 +30,8 @@ function nextImage() {
     radioElement.checked = true;
   }
 }
+
+
 </script>
 <template>
   <div class="carrosel">
@@ -32,15 +41,15 @@ function nextImage() {
       <input type="radio" name="radio-btn" class="radio-btn" id="radio3"/>
 
       <div class="slide first">
-        <img src="https://i.ibb.co/SmgJS32/eduardo-montandon.png" alt="img1" />
+        <img :src="chefe?.prato" alt="img1" />
       </div>
 
       <div class="slide">
-        <img src="https://i.ibb.co/m8Bt04z/Fabio.png" alt="img2" />
+        <img :src="chefe?.prato2" alt="img2" />
       </div>
 
       <div class="slide">
-        <img src="https://i.ibb.co/SmgJS32/eduardo-montandon.png" alt="img3" />
+        <img :src="chefe?.prato3" alt="img3" />
       </div>
 
       <div class="navigation-auto">
@@ -91,7 +100,7 @@ function nextImage() {
     gap: 20px;
 }
 .manual-btn{
-    border: 2px solid white;
+    border: 2px solid rgb(255, 0, 0);
     padding: 5px;
     border-radius: 10px;
     cursor: pointer;

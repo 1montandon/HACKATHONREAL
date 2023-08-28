@@ -52,8 +52,11 @@
       "categoriaId": 4,
       "statusId": 1,
       "pic": "https://i.ibb.co/FWtkg1m/Eduardo-da-Silva.png",
-      "stars": 5,
-      "dollars": 5
+      "stars": 3,
+      "dollars": 5,
+      "prato": "https://i.ibb.co/ZGRtdcj/6449ea101e91ac5cc3a816c4baebb179.jpg",
+      "prato2": "https://i.ibb.co/9p88xGf/cooking-food-cpu.jpg",
+      "prato3": "https://i.ibb.co/hXD36WJ/this-pc-is-made-out-of-pasta-amp-it-actually-works1200-1556011486.jpg"
     },
     {
       "id": 2,
@@ -62,7 +65,10 @@
       "statusId": 1,
       "pic": "https://i.ibb.co/m8Bt04z/Fabio.png",
       "stars": 5,
-      "dollars": 5
+      "dollars": 3,
+      "prato": "https://i.ibb.co/TtCJWvv/mel.jpg",
+      "prato2": "https://i.ibb.co/k4RJ3hk/peixe.jpg",
+      "prato3": "https://i.ibb.co/hXZ4mKD/pratos-peixe-assustadores-3.jpg"
     },
     {
       "id": 3,
@@ -70,8 +76,11 @@
       "categoriaId": 1,
       "statusId": 1,
       "pic": "https://i.ibb.co/zR9kv8x/marco-andre.png",
-      "stars": 5,
-      "dollars": 5
+      "stars": 3,
+      "dollars": 3,
+      "prato": "https://i.ibb.co/Qd0WXKz/222006-disneys-ratatouille-DDMFS-4x3-36eb15843ab548a79e7aab761dac92e1.jpg",
+      "prato2": "https://i.ibb.co/nLJkzfs/pipoca-doce-10.jpg",
+      "prato3": "https://i.ibb.co/2k0mzJP/pipoca-salgada.jpg"
     },
     {
       "id": 4,
@@ -80,7 +89,10 @@
       "statusId": 1,
       "pic": "https://i.ibb.co/48RZQwF/james.png",
       "stars": 5,
-      "dollars": 5
+      "dollars": 5,
+      "prato": "https://i.ibb.co/nQxBkq1/10.jpg",
+      "prato2": "https://i.ibb.co/xz11f02/15.jpg",
+      "prato3": "https://i.ibb.co/85P8TJT/20.webp"
     },
     {
       "id": 5,
@@ -88,17 +100,23 @@
       "categoriaId": 7,
       "statusId": 1,
       "pic": "https://i.ibb.co/7XdJpHq/jao.png",
-      "stars": 5,
-      "dollars": 5
+      "stars": 1,
+      "dollars": 1,
+      "prato": "https://i.ibb.co/LYtvn7s/maxresdefault.jpg",
+      "prato2": "https://i.ibb.co/kSj9wTQ/182dbb-230fa73d5a6c4910b2a8d8890148e693-mv2.webp",
+      "prato3": "https://i.ibb.co/5Fd6030/prato-de-pedreiro.png"
     },
     {
       "id": 6,
-      "name": "Eduardo Boaventura Montandon",
+      "name": "Eduardo Montandon",
       "categoriaId": 11,
       "statusId": 1,
       "pic": "https://i.ibb.co/SmgJS32/eduardo-montandon.png",
-      "stars": 5,
-      "dollars": 5
+      "stars": 1,
+      "dollars": 5,
+      "prato": "https://i.ibb.co/mhw2m7Y/391596-E300000578-3821058-image-a-4-1475572958446.jpg",
+      "prato2": "https://i.ibb.co/dWZZzNy/f206bd6717367b5653060b3746c05c01-burnt-food-diet.jpg",
+      "prato3": "https://i.ibb.co/B4zc0xK/Screenshot-6.png"
     },
     {
       "id": 7,
@@ -106,8 +124,11 @@
       "categoriaId": 1,
       "statusId": 1,
       "pic": "https://i.ibb.co/t34Kb06/Lucas-liebl.png",
-      "stars": 5,
-      "dollars": 5
+      "stars": 2,
+      "dollars": 2,
+      "prato": "https://i.ibb.co/SftmY6h/comidas-alemas-fb.jpg",
+      "prato2": "https://i.ibb.co/BtQyN7X/hackepeter-16.webp",
+      "prato3": "https://i.ibb.co/9bKj4FF/Pretzel-Alemanha-Blog-Vambora.jpg"
     },
     {
       "id": 8,
@@ -115,8 +136,11 @@
       "categoriaId": 5,
       "statusId": 1,
       "pic": "https://i.ibb.co/Fsp1gW1/matheus-zenere.png",
-      "stars": 5,
-      "dollars": 5
+      "stars": 3,
+      "dollars": 5,
+      "prato": "https://i.ibb.co/ZGRtdcj/6449ea101e91ac5cc3a816c4baebb179.jpg",
+      "prato2": "https://i.ibb.co/9p88xGf/cooking-food-cpu.jpg",
+      "prato3": "https://i.ibb.co/hXD36WJ/this-pc-is-made-out-of-pasta-amp-it-actually-works1200-1556011486.jpg"
     },
     {
       "id": 9,
@@ -124,8 +148,23 @@
       "categoriaId": 5,
       "statusId": 1,
       "pic": "https://i.ibb.co/cktNXcc/bruno-marquesi.png",
+      "stars": 1,
+      "dollars": 5,
+      "prato": "https://i.ibb.co/h21Bd2j/66dce4393a68018577602f2d5d0606c3.jpg",
+      "prato2": "https://i.ibb.co/RNtTQyd/23070f2a-ad36-4c1e-b81f-ea727fa63130.webp",
+      "prato3": "https://i.ibb.co/FqX0jN8/transferir.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Bob Sponja",
+      "categoriaId": 5,
+      "statusId": 1,
+      "pic": "https://i.ibb.co/cxvSCNh/bob.jpg",
       "stars": 5,
-      "dollars": 5
+      "dollars": 5,
+      "prato": "https://i.ibb.co/0GCBKhM/08fb04447b0c1a86b467e1d0ed21132a-spongebob-schwammkopf-spongebob-squarepants.jpg",
+      "prato2": "https://i.ibb.co/BwZ228p/59837-spongebob-square-pants-krabby-patty.jpg",
+      "prato3": "https://i.ibb.co/9bfpqhz/Krusty-Krab-Training-Video-081.webp"
     }
   ],
   "status": [
@@ -167,15 +206,7 @@
       "email": "emontandon@gmail.com",
       "cpf": "1",
       "cep": "2",
-      "senha": "123"
-    },
-    {
-      "name": "sdasd",
-      "email": "dasdas",
-      "cep": "dasd",
-      "cpf": "",
-      "senha": "",
-      "id": 2
+      "senha": "1234"
     }
   ]
 }

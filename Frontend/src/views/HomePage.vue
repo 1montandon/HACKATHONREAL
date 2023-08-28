@@ -2,6 +2,8 @@
 import { RouterLink } from 'vue-router'
 import HeaderNav from '../components/HeaderNav.vue'
 import ButtonType from '../components/login/ButtonType.vue'
+import { isLogged } from '../api/IsLoggedModule';
+
 </script>
 <template>
   <header-nav
@@ -9,12 +11,13 @@ import ButtonType from '../components/login/ButtonType.vue'
     text2="SignUp"
     localto="/loginpage"
     localto2="/registerpage"
-    localto3=""
   >
   </header-nav>
   <main class="container">
     <div class="title"><h1>the ideal chef for your will!</h1></div>
-    <RouterLink to="/principalpage"> <button-type class="button" buttontext="HIRE NOW"></button-type> </RouterLink>
+    <RouterLink v-if="isLogged" to="/principalpage"> <button-type class="button" buttontext="HIRE NOW"></button-type> </RouterLink>
+    <RouterLink v-else to="/loginpage"> <button-type class="button" buttontext="HIRE NOW"></button-type> </RouterLink>
+
   </main>
   <svg
     xmlns="http://www.w3.org/2000/svg"

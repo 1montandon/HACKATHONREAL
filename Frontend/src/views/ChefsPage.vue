@@ -5,7 +5,10 @@ import FoodCarrosel from '../components/FoodCarrosel.vue'
 import chefsApi from '../api/chefes.js'
 import { ref } from 'vue'
 import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { RouterLink } from 'vue-router'
 
+const router = useRouter()
 const chefes = ref()
 const chefe = ref()
 
@@ -19,17 +22,25 @@ onMounted(async () => {
   chefes.value = await chefsApi.buscarTodosOsChefs()
   chefe.value = chefes.value.find((item) => item.id == props.id)
 })
+
+function selectChef() {
+  router.push({ name: 'schedulepage', params: { id: chefe.value .id } })
+}
+
+
 </script>
 <template>
-  <HeaderNav localto="about" localto2="" localto3="" text1="oi" text2=""></HeaderNav>
+  <HeaderNav localto="/" localto2=""  text1="oi" text2=""></HeaderNav>
   <main>
     <div class="container">
-      <FoodCarrosel >      </FoodCarrosel>
+      <FoodCarrosel :chefe="chefe" >      </FoodCarrosel>
 
       <ChefsCard :chefe="chefe"></ChefsCard>
       <div class="smallbox-container">
         <div class="small-box">
-          <button>ver calendario do chefe</button>
+          <RouterLink @click="selectChef(chefe)" to="/schedulepage">
+            <button>ver calendario do chefe</button>
+        </RouterLink>
         </div>
         <div class="small-box"><button>open chat</button></div>
       </div>

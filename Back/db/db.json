@@ -76,7 +76,7 @@
       "categoriaId": 1,
       "statusId": 1,
       "pic": "https://i.ibb.co/zR9kv8x/marco-andre.png",
-      "stars": 3,
+      "stars": 2,
       "dollars": 3,
       "prato": "https://i.ibb.co/Qd0WXKz/222006-disneys-ratatouille-DDMFS-4x3-36eb15843ab548a79e7aab761dac92e1.jpg",
       "prato2": "https://i.ibb.co/nLJkzfs/pipoca-doce-10.jpg",
@@ -100,7 +100,7 @@
       "categoriaId": 7,
       "statusId": 1,
       "pic": "https://i.ibb.co/7XdJpHq/jao.png",
-      "stars": 1,
+      "stars": 3,
       "dollars": 1,
       "prato": "https://i.ibb.co/LYtvn7s/maxresdefault.jpg",
       "prato2": "https://i.ibb.co/kSj9wTQ/182dbb-230fa73d5a6c4910b2a8d8890148e693-mv2.webp",
@@ -136,7 +136,7 @@
       "categoriaId": 5,
       "statusId": 1,
       "pic": "https://i.ibb.co/Fsp1gW1/matheus-zenere.png",
-      "stars": 3,
+      "stars": 2,
       "dollars": 5,
       "prato": "https://i.ibb.co/ZGRtdcj/6449ea101e91ac5cc3a816c4baebb179.jpg",
       "prato2": "https://i.ibb.co/9p88xGf/cooking-food-cpu.jpg",
@@ -148,7 +148,7 @@
       "categoriaId": 5,
       "statusId": 1,
       "pic": "https://i.ibb.co/cktNXcc/bruno-marquesi.png",
-      "stars": 1,
+      "stars": 0,
       "dollars": 5,
       "prato": "https://i.ibb.co/h21Bd2j/66dce4393a68018577602f2d5d0606c3.jpg",
       "prato2": "https://i.ibb.co/RNtTQyd/23070f2a-ad36-4c1e-b81f-ea727fa63130.webp",
@@ -207,6 +207,33 @@
       "cpf": "1",
       "cep": "2",
       "senha": "1234"
+    },
+    {
+      "name": "eduardo montandon",
+      "email": "emontandon@gmail.com",
+      "cep": "88380-000",
+      "cpf": "000000000",
+      "senha": "",
+      "confirmaSenha": "",
+      "id": 2
+    },
+    {
+      "name": "eduardo",
+      "email": "emontandon@gmail.com",
+      "cep": "88380-000",
+      "cpf": "00000000",
+      "senha": "",
+      "confirmaSenha": "",
+      "id": 3
+    },
+    {
+      "name": "eduardo monta",
+      "email": "emontandon@gmail.com",
+      "cep": "88380-000",
+      "cpf": "00000000",
+      "senha": "",
+      "confirmaSenha": "",
+      "id": 4
     }
   ]
 }

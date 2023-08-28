@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from 'vue-router';
 import { ref, computed } from 'vue'
 
 const selectedDate = ref('')
@@ -46,7 +47,9 @@ const minDate = computed(() => getCurrentDay())
           <input min="1" class="numberguest" type="number" id="" name="" value="" />
         </div>
       </div>
-      <div class="button-div"><button>concluir contrato</button></div>
+      <div class="button-div">
+        <RouterLink to="/principalpage"> <button>concluir contrato</button>       </RouterLink>
+      </div>
     </form>
   </div>
 </template>

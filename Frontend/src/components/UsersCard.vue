@@ -21,7 +21,7 @@ function deslogar(){
     <h1>Eduardo</h1>
         <div class="small-box">
           <div class="inputs">
-            <InputTypeAlt placeholder="eduardo" icon="user"> </InputTypeAlt>
+            <InputTypeAlt placeholder="Eduardo Monta" icon="user"> </InputTypeAlt>
             <InputTypeAlt placeholder="emontandon@gmail.com" icon="envelope">> </InputTypeAlt>
             <InputTypeAlt placeholder="***********" icon="eye"> </InputTypeAlt>
           </div>
